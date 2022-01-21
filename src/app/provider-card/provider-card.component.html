@@ -1,0 +1,9 @@
+<mat-card *ngFor="let provider of providerList; index as i; trackBy: trackByFn"
+  [ngClass]="{'selectedList': selectedList}"
+  (click)="selectProvider(provider)">
+  <span *ngIf="selectedList" class="remove" (click)="removeProvider(provider)">X</span>
+  <mat-card-title><img class="avatar" src={{provider.imagePath}}>{{provider.name}}</mat-card-title>
+  <div>Specialty: {{provider.specialty}}</div>
+  <div>Address: {{provider.address}}</div>
+  <div>Phone: {{provider.phone}}</div>
+</mat-card>
