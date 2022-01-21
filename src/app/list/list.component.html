@@ -1,4 +1,18 @@
 <div class="list-container">
-  <h2>Providers</h2>
-
+  <div class="unselected-providers">
+    <h2>Providers</h2>
+    <h3 *ngIf="unselectedProviders.length === 0">No remaining providers to select.</h3>
+    <app-provider-card
+      [providerList]="unselectedProviders"
+      (selectedProvider)="selectProvider($event)">
+    </app-provider-card>
+  </div>
+  <div class="selected-providers">
+    <h2>Selected Providers</h2>
+    <app-provider-card
+      [providerList]="selectedProviders"
+      [selectedList]="true"
+      (unselectedProvider)="removeProvider($event)">
+    </app-provider-card>
+  </div>
 </div>
